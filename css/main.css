@@ -1,0 +1,140 @@
+*{
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+
+ul{
+	list-style: none;
+}
+
+header{
+	border-bottom: 1px solid gray;
+}
+
+h1{
+	text-align: center;
+	font-size: 50px;
+	margin: 5px 0;
+}
+
+.lives{
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+.lives li{
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	margin: 0 0 0 10px;
+	mask: url(../images/heart.png);
+	-webkit-mask: url(../images/heart.png);
+	-moz-mask: url(../images/heart.png);
+	background: #ff7494;
+}
+.lives li.spent{
+	background: #fff;
+}
+
+.block-list{
+	padding: 10px 50px 0 50px;
+	text-align: center;
+}
+
+.block-list .block{
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	margin: 5px;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 100px;
+	line-height: 300px;
+	cursor: pointer;
+	position: relative;
+	perspective: 800;
+	-webkit-perspective: 800;
+	-moz-perspective: 800;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+}
+
+.block-list .block > div{
+	border: 1px solid gray;
+	border-radius: 50%;
+	color: gray;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: inherit;
+	height: inherit;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	transition: -webkit-transform 500ms, outline 600ms;
+	-webkit-transition: -webkit-transform 500ms, outline 600ms;
+	-moz-transition: -webkit-transform 500ms, outline 600ms;
+	transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	border-radius: 50%;
+}
+
+.block-list .block .front{
+	background: #efefef;
+}
+
+.block-list .block .back, .block-list .block.flipped .front {
+	transform: translate3d(0, 0, 0) rotateY(180deg);
+	-webkit-transform: translate3d(0, 0, 0) rotateY(180deg);
+	-moz-transform: translate3d(0, 0, 0) rotateY(180deg);
+}
+
+.block-list .block.flipped .front {
+	outline: 1px solid transparent;
+}
+
+.block-list .block.flipped .back {
+	transform: translate3d(0, 0, 0) rotateY(360deg);
+	-webkit-transform: translate3d(0, 0, 0) rotateY(360deg);
+	-moz-transform: translate3d(0, 0, 0) rotateY(360deg);
+}
+.block-list .block .candy{
+	background: url(../images/candy.png) 5px 30px no-repeat;
+	background-size: contain;
+}
+.block-list .block .fail{
+	background: url(../images/smile.jpeg) 50% 50% no-repeat;
+	background-size: contain;
+}
+
+.overlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 100;
+	display: none;
+	background: rgba(0,0,0,.1);
+}
+.overlay.active{
+	display: block;
+}
+.overlay p{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 20px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+}
